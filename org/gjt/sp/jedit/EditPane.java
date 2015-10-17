@@ -30,6 +30,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.util.HashMap;
 import java.util.Map;
+import java.awt.*;
 
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -1072,7 +1073,12 @@ public class EditPane extends JPanel implements EBComponent, BufferSetListener
 
 		textArea.setCtrlForRectangularSelection(jEdit.getBooleanProperty(
 			"view.ctrlForRectangularSelection"));
-
+		
+		//TODO: create a menuitem for selecting the value the real value of 'x' here
+		boolean x = GutterOptionPane.isGutterEnabled();
+        textArea.showScrollbar(x);
+        
+        
 		textArea.propertiesChanged();
 
 		if (bufferSwitcher != null)

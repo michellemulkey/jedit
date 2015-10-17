@@ -32,6 +32,7 @@ import java.util.TooManyListenersException;
 
 import javax.swing.*;
 import javax.swing.event.*;
+
 import java.awt.event.*;
 import java.awt.*;
 import java.awt.im.InputMethodRequests;
@@ -101,13 +102,14 @@ public abstract class TextArea extends JComponent
 
 		// some plugins add stuff in a "right-hand" gutter
 		verticalBox = new Box(BoxLayout.X_AXIS);
-		verticalBox.add(vertical = new JScrollBar(Adjustable.VERTICAL));
+		vertical = new JScrollBar(Adjustable.VERTICAL);
+		verticalBox.add(vertical);
 		vertical.setRequestFocusEnabled(false);
 		add(ScrollLayout.RIGHT,verticalBox);
-		add(ScrollLayout.BOTTOM,
-			horizontal = new JScrollBar(Adjustable.HORIZONTAL));
+		horizontal = new JScrollBar(Adjustable.HORIZONTAL);		
+		add(ScrollLayout.BOTTOM, horizontal);
 		horizontal.setRequestFocusEnabled(false);
-
+        
 		horizontal.setValues(0,0,0,0);
 		//}}}
 
@@ -2304,6 +2306,19 @@ forward_scan:	do
 		listenerList.remove(CaretListener.class,listener);
 	} //}}}
 
+	// show or hide the vertical and horizontal scrollbars
+	public void showScrollbar( boolean x)
+	{
+		Component v = getVertical();
+		v.setEnabled(x);
+		v.setVisible(x);
+		
+		Component h = getHorizontal();
+        h.setEnabled(x);
+        h.setVisible(x);		
+	}
+	
+	
 	//{{{ goToNextBracket() method
 	/**
 	 * Moves the caret to the next closing bracket.
@@ -3444,6 +3459,16 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 		buffer.remove(_caret + lineStart, caret - (_caret + lineStart));
 	} //}}}
 
+	public Component getVertical()
+	{
+	    return vertical;
+	}
+	public Component getHorizontal()
+	{
+		return horizontal;
+	}
+
+	
 	//{{{ delete() method
 	/**
 	 * Deletes the character after the caret.
