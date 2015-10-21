@@ -338,6 +338,9 @@ view.gutter.selectionAreaEnabled=true
 #view.gutter.selectionAreaBgColor=#dbdbdb
 #}}}
 
+
+view.scrollbar.enabled=true
+
 # Expand abbrevs when space bar pressed
 view.expandOnInput=false
 

@@ -272,6 +272,7 @@ edit=undo \
      expand-abbrev \
      - \
      goto-line \
+     toggle-scrollbar \
      - \
      %text \
      %indent \
@@ -292,6 +293,8 @@ word-count.label=$Word Count...
 complete-word.label=Co$mplete Word
 expand-abbrev.label=E$xpand Abbreviation
 goto-line.label=$Go to Line...
+toggle-scrollbar.label=Show Scroll Bar
+
 
 #{{{ More Clipboard menu
 clipboard=cut-append \

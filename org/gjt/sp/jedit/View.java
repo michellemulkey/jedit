@@ -2155,9 +2155,7 @@ loop:		while (true)
 				status.updateCaretStatus();
 		}
 
-		public void scrolledHorizontally(TextArea textArea) {
-			int i = 0;
-		}
+		public void scrolledHorizontally(TextArea textArea) {}
 	} //}}}
 
 	//{{{ WindowHandler class

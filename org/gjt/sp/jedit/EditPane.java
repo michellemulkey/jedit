@@ -47,6 +47,7 @@ import org.gjt.sp.jedit.msg.BufferUpdate;
 import org.gjt.sp.jedit.msg.EditPaneUpdate;
 import org.gjt.sp.jedit.msg.PropertiesChanged;
 import org.gjt.sp.jedit.options.GutterOptionPane;
+import org.gjt.sp.jedit.options.ScrollbarOptionPane;
 import org.gjt.sp.jedit.syntax.SyntaxStyle;
 import org.gjt.sp.jedit.textarea.AntiAlias;
 import org.gjt.sp.jedit.textarea.Gutter;
@@ -1074,9 +1075,9 @@ public class EditPane extends JPanel implements EBComponent, BufferSetListener
 		textArea.setCtrlForRectangularSelection(jEdit.getBooleanProperty(
 			"view.ctrlForRectangularSelection"));
 		
-		//TODO: create a menuitem for selecting the value the real value of 'x' here
-		boolean x = GutterOptionPane.isGutterEnabled();
-        textArea.showScrollbar(x);
+		//Should we show the scrollbar or not?
+		boolean scrollBarEnabled = ScrollbarOptionPane.isScrollbarEnabled();
+        textArea.showScrollbar(scrollBarEnabled);
         
         
 		textArea.propertiesChanged();

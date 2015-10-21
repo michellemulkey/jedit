@@ -1449,6 +1449,17 @@
 	</IS_SELECTED>
 </ACTION>
 
+<ACTION NAME="toggle-scrollbar">
+	<CODE>
+		boolean showing = jEdit.getBooleanProperty("view.scrollbar.enabled");
+		jEdit.setBooleanProperty("view.scrollbar.enabled", !showing);
+		jEdit.propertiesChanged();
+	</CODE>
+	<IS_SELECTED>
+		return jEdit.getBooleanProperty("view.scrollbar.enabled");
+	</IS_SELECTED>
+</ACTION>
+
 <ACTION NAME="toggle-line-separator">
 	<CODE>
 		buffer.toggleLineSeparator(view);
